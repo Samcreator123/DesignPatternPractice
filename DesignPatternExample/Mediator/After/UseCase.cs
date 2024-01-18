@@ -14,6 +14,7 @@
             var airPlane4 = new Airplane("airPlane4", mediator);
 
             // 如果專案與專案之間要註冊，可以透過config讀取相關訊息，避免專案上的雙向依賴
+            // 或Mediator跟IAirplane為一個專案，使Airplane繼承該專案的IAirplane
             mediator.RegisterAirplane(airPlane1);
             mediator.RegisterAirplane(airPlane2);
             mediator.RegisterAirplane(airPlane3);

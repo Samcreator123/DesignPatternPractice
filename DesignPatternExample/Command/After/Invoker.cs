@@ -1,27 +1,21 @@
-﻿using DesignPatternExample.Command.Share;
-
-namespace DesignPatternExample.Command.After
+﻿namespace DesignPatternExample.Command.After
 {
+    // 可進行對多數Command的操作，也可自由調整Command的順序
     public class Invoker
     {
-        List<ILight> _lightCommands = new List<ILight>();
+        List<ICommand> _lightCommands = new List<ICommand>();
 
-        public string On(ILight light)
+        public void AddLightCommand(ICommand command)
         {
-            _lightCommands.Add(light);
-            return light.On();
+            this._lightCommands.Add(command);
         }
-        public string Off(ILight light) 
+
+        public IEnumerable<string> Execute()
         {
-            if (_lightCommands.Count == 0)
+            foreach (var command in this._lightCommands)
             {
-                return "There is no light on";
+                yield return command.Execute();
             }
-
-            // 可在這邊記log、計算時間等等...，將這些外部邏輯與商業邏輯分別
-            _lightCommands.Remove(light);
-
-            return light.Off();
         }
     }
 }

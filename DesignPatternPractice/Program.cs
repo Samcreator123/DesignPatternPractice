@@ -6,7 +6,7 @@ namespace DesignPatternPractice
     {
         static void Main(string[] args)
         {
-            IUseCase useCase = new DesignPatternExample.State.After.UseCase();
+            IUseCase useCase = new DesignPatternExample.Command.After.UseCase();
 
             foreach (var item in useCase.Print())
             {

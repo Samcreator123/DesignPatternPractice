@@ -29,7 +29,7 @@
         }
         public IEnumerable<string> Send(string message, IAirplane sender, params string[] names)
         {
-            List<string> nameList = names == null || names.Count() == 0 ? new List<string>() : names.ToList();
+            List<string> nameList = names == null || names.Count() == 0 ? new() : names.ToList();
             
             foreach (var reciever in _singleton.airplanes)
             {
